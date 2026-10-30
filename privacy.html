@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Hermes Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="brand-badge">Política de Privacidad</span>
+      <h1>Política de Privacidad de Hermes Agent</h1>
+      <p>Última actualización: 29 de octubre de 2026</p>
+    </header>
+
+    <main>
+      <div class="notice-box">
+        <p><strong>Naturaleza de la integración:</strong> Esta política de privacidad describe el tratamiento de datos realizado por <strong>Hermes Agent</strong> (Proyecto Google Cloud: <code>glossy-mason-510523-g7</code>), una integración técnica privada y de uso exclusivamente personal administrada por su desarrollador para interactuar con su propia cuenta de Gmail.</p>
+      </div>
+
+      <section class="card">
+        <h2>1. Responsable del Tratamiento</h2>
+        <p>
+          El responsable del tratamiento y administración de esta integración es <strong>Klever</strong>, en calidad de usuario y desarrollador individual.<br>
+          <strong>Correo electrónico de contacto y asistencia:</strong> <a href="mailto:kjlopez@computer.org">kjlopez@computer.org</a><br>
+          <strong>Repositorio del proyecto:</strong> <a href="https://github.com/Klopezxd/hermes-agent-oauth" target="_blank" rel="noopener noreferrer">github.com/Klopezxd/hermes-agent-oauth</a>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>2. Alcance OAuth y Datos Tratados</h2>
+        <p>
+          Hermes Agent solicita única y exclusivamente el siguiente permiso (scope) de Google OAuth:
+        </p>
+        <div class="scope-box">
+          https://www.googleapis.com/auth/gmail.metadata
+        </div>
+        <p>
+          En virtud de este permiso, los únicos datos accesibles y tratados son los <strong>metadatos de los correos electrónicos</strong>:
+        </p>
+        <ul>
+          <li>Identificadores técnicos del mensaje y del hilo (<code>id</code>, <code>threadId</code>).</li>
+          <li>Encabezados estándar del correo: Remitente (<code>From</code>), Destinatario (<code>To</code>), Fecha y hora (<code>Date</code>) y Asunto (<code>Subject</code>).</li>
+          <li>Etiquetas del sistema (<code>labelIds</code>, tales como <code>UNREAD</code> o <code>INBOX</code>).</li>
+        </ul>
+        <p>
+          <strong>Datos excluidos y no accesibles:</strong> La integración <strong>no</strong> tiene acceso ni recopila el cuerpo del mensaje (texto o HTML), fragmentos de previsualización (<code>snippets</code>) ni archivos adjuntos. Tampoco puede enviar mensajes, eliminarlos, archivarlos ni marcar su estado de lectura.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>3. Finalidades del Tratamiento</h2>
+        <p>Los metadatos recopilados se utilizan estrictamente para las siguientes finalidades:</p>
+        <ol>
+          <li>Identificar correos entrantes que permanecen en estado no leído mediante filtros operativos de la aplicación.</li>
+          <li>Generar un resumen estructurado y periódico de los mensajes pendientes para el titular de la cuenta.</li>
+          <li>Transmitir dicho resumen directamente al usuario a través de un canal privado de mensajería (Telegram).</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>4. Procesamiento y Terceros Proveedores</h2>
+        <p>
+          Para la generación y síntesis de los resúmenes, el agente puede enviar los metadatos (asunto, remitente y fecha) como parte del contexto en las solicitudes a proveedores externos de modelos de lenguaje e inteligencia artificial: específicamente a través de la <strong>API de OpenRouter</strong> y modelos de <strong>OpenAI gestionados mediante la plataforma de Nous</strong>.
+        </p>
+        <p>
+          Asimismo, la entrega de las notificaciones e informes generados se canaliza a través de los servidores de la API de Telegram Bot con destino exclusivo al chat personal del titular. No se comparte ni transfiere información con ningún otro tercero, plataforma de publicidad ni empresa de comercialización de datos.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>5. Almacenamiento, Conservación y Seguridad</h2>
+        <p>
+          <strong>Almacenamiento:</strong> Los metadatos obtenidos, junto con el historial de peticiones e interacción con herramientas, quedan registrados localmente en una base de datos SQLite (<code>~/.hermes/state.db</code>) alojada en el servidor privado (VPS) administrado por el titular.
+        </p>
+        <p>
+          <strong>Credenciales:</strong> Los tokens de autenticación OAuth emitidos por Google se guardan de forma aislada en el archivo local <code>google_token.json</code> con permisos estrictos de sistema de archivos en el servidor privado.
+        </p>
+        <p>
+          <strong>Conservación:</strong> Los datos se conservan en el entorno privado del responsable hasta que este decida purgarlos o eliminarlos voluntariamente.
+        </p>
+        <p>
+          <strong>Seguridad:</strong> Toda la transmisión de datos hacia y desde las APIs de Google, proveedores de IA y Telegram se realiza exclusivamente mediante canales seguros y cifrados utilizando TLS/HTTPS. Este sitio web no contiene cookies no esenciales, ni analítica, ni publicidad, ni herramientas de seguimiento de terceros.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>6. Cumplimiento de la Política de Datos de Usuario de Google (Limited Use)</h2>
+        <p>
+          El uso que hace Hermes Agent de la información recibida a través de las API de Google cumple estrictamente con la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Política de Datos de Usuario de los Servicios de API de Google</a>, incluidos los requisitos de Uso Limitado (Limited Use Requirements):
+        </p>
+        <ul>
+          <li>La información solo se utiliza para proporcionar o mejorar la función orientada al usuario que es evidente en la interfaz de la aplicación (resúmenes personales de correos no leídos).</li>
+          <li>No se transfieren datos a terceros excepto para el procesamiento de síntesis de lenguaje autorizado o para cumplir con la ley.</li>
+          <li>Los datos de los usuarios no se utilizan ni se transfieren para servir anuncios, incluidos anuncios personalizados, basados en intereses o retargeting.</li>
+          <li>No se permite a humanos leer los datos, a menos que el titular haya dado consentimiento expreso para mensajes específicos, sea necesario por razones de seguridad o para cumplir con leyes aplicables.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>7. Revocación del Acceso y Control</h2>
+        <p>
+          El titular de la cuenta de Google puede revocar el acceso de Hermes Agent en cualquier momento de manera inmediata:
+        </p>
+        <ol>
+          <li>Ingresando al panel de seguridad de Google: <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Permisos de la Cuenta de Google</a>.</li>
+          <li>Seleccionando <strong>Hermes Agent</strong> y haciendo clic en <strong>Quitar acceso</strong>.</li>
+        </ol>
+        <p>
+          Adicionalmente, el titular puede desconectar la integración eliminando el archivo local de credenciales <code>google_token.json</code> en su servidor.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>8. Contacto</h2>
+        <p>
+          Para cualquier consulta o solicitud relacionada con esta política o el tratamiento de datos, puede comunicarse directamente con el responsable en: <a href="mailto:kjlopez@computer.org">kjlopez@computer.org</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; 2026 Hermes Agent (Integración Personal). Todos los derechos reservados.</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="privacy.html">Política de Privacidad</a>
+        <a href="https://github.com/Klopezxd/hermes-agent-oauth" target="_blank" rel="noopener noreferrer">Repositorio</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

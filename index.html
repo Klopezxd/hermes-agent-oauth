@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Agent — Integración Personal de Gmail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="brand-badge">Integración Personal Privada</span>
+      <h1>Hermes Agent</h1>
+      <p>Servicio automatizado personal para el análisis y resumen de metadatos de correos no leídos.</p>
+    </header>
+
+    <main>
+      <div class="notice-box">
+        <p><strong>Aviso de uso personal:</strong> Esta es una integración privada de uso exclusivamente personal para su desarrollador y propietario. No es una aplicación pública ni un servicio comercial para terceros, ni constituye un producto oficial de Nous Research.</p>
+      </div>
+
+      <section class="card">
+        <h2>Propósito de la Aplicación</h2>
+        <p>
+          <strong>Hermes Agent</strong> es un asistente autónomo de administración personal. Esta integración con la API de Gmail tiene como único propósito consultar los metadatos de los correos electrónicos entrantes que no han sido leídos, con el fin de generar resúmenes periódicos y privados de la bandeja de entrada, los cuales son entregados al usuario a través de Telegram.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Permisos OAuth y Alcance Técnico</h2>
+        <p>
+          Para salvaguardar la privacidad de la cuenta y cumplir estrictamente con el principio de mínimo privilegio, la integración solicita y opera únicamente bajo un permiso exclusivo:
+        </p>
+        <div class="scope-box">
+          https://www.googleapis.com/auth/gmail.metadata
+        </div>
+
+        <h3>Capacidades y Límites Estrictos</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Capacidad</th>
+                <th>Estado</th>
+                <th>Tipo de restricción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lectura de metadatos (Remitente, Asunto, Fecha, Etiquetas)</td>
+                <td><strong>Habilitado</strong></td>
+                <td>Autorizado por el scope</td>
+              </tr>
+              <tr>
+                <td>Filtro exclusivo a correos no leídos</td>
+                <td><strong>Habilitado</strong></td>
+                <td>Política operativa de la integración</td>
+              </tr>
+              <tr>
+                <td>Lectura del cuerpo del mensaje (texto/HTML)</td>
+                <td><strong>No permitido</strong></td>
+                <td>Restricción técnica del scope</td>
+              </tr>
+              <tr>
+                <td>Lectura de fragmentos (snippets) y archivos adjuntos</td>
+                <td><strong>No permitido</strong></td>
+                <td>Restricción técnica del scope</td>
+              </tr>
+              <tr>
+                <td>Envío, redacción o respuesta de correos</td>
+                <td><strong>No permitido</strong></td>
+                <td>Restricción técnica del scope</td>
+              </tr>
+              <tr>
+                <td>Eliminación, archivado o marcado de lectura</td>
+                <td><strong>No permitido</strong></td>
+                <td>Restricción técnica del scope</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <em>Nota de transparencia técnica:</em> La restricción a mensajes no leídos se implementa mediante filtros lógicos en las consultas de la integración; no es una limitación inherente del scope <code>gmail.metadata</code>. Por el contrario, la imposibilidad de acceder al contenido del cuerpo, adjuntos o de modificar correos sí es una restricción técnica absoluta impuesta por Google OAuth al limitar el permiso a solo metadatos.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Responsable y Contacto</h2>
+        <p>
+          <strong>Proyecto Google Cloud:</strong> <code>glossy-mason-510523-g7</code><br>
+          <strong>Responsable y Desarrollador:</strong> Klever (Uso personal)<br>
+          <strong>Correo de asistencia y contacto:</strong> <a href="mailto:kjlopez@computer.org">kjlopez@computer.org</a><br>
+          <strong>Código fuente:</strong> <a href="https://github.com/Klopezxd/hermes-agent-oauth" target="_blank" rel="noopener noreferrer">github.com/Klopezxd/hermes-agent-oauth</a>
+        </p>
+        <p>
+          Para conocer los detalles sobre el almacenamiento en bases de datos locales, el procesamiento con modelos de lenguaje y los mecanismos de revocación, consulte nuestra política completa.
+        </p>
+        <p style="margin-top: 1.5rem;">
+          <a href="privacy.html" class="btn-nav">Ver Política de Privacidad &rarr;</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; 2026 Hermes Agent (Integración Personal). Todos los derechos reservados.</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="privacy.html">Política de Privacidad</a>
+        <a href="https://github.com/Klopezxd/hermes-agent-oauth" target="_blank" rel="noopener noreferrer">Repositorio</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
